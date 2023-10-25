@@ -5,9 +5,13 @@ const port = 5000;                  //Save the port number where your server wil
 //Idiomatic expression in express to route and respond to a client request
 app.get('/', (req, res) => {        //get requests to the root ("/") will route here
     res.sendFile('index.html', {root: __dirname});      //server responds by sending the index.html file to the client's browser
-                                                        //the .sendFile method needs the absolute path to the file, see: https://expressjs.com/en/4x/api.html#res.sendFile 
+                                                        //the .sendFile method needs the absolute path to the file, see: https://expressjs.com/en/4x/api.html#res.sendFile
+});
+
+app.get('/about', (req, res) => {   //get requests to "/about" will route here
+    res.sendFile('pages/aboutMe.html', {root: __dirname});      //server responds by sending the about.html file to the client's browser
 });
 
 app.listen(port, () => {            //server starts listening for any attempts from a client to connect at port: {port}
-    console.log(`Now listening on port ${port}`); 
+    console.log(`Now listening on port ${port}`);
 });
